@@ -198,24 +198,25 @@ const updateEmployeeRole = () => {
     message:" Enter the employee's last name"
   },
   {
-    type: 'input',
-    name: 'manager',
-    message: "Enter the employee's manager"
-  },
-  {
-    type: 'input',
-    name: 'role_id',
-    message: "Enter the employee's role id"
+    type: 'text',
+    name: 'updated_role',
+    message: "Enter the new role for the employee"
   }
 ])
 .then((answers) => {
-  const sql = `INSERT INTO employees (first_name, last_name, manager, role_id) VALUES ('${answers.first_name}', '${answers.last_name}', '${answers.manager}', '${answers.role_id}')`;
-  db.query(sql, (err, rows) => {
+  const sql = `
+  UPDATE employees
+  SET role_id = '${answers.updated_role}'
+  WHERE first_name='${answers.first_name}'
+  AND last_name='${answers.last_name}'
+  `;
+  
+    db.query(sql, (err, rows) => {
     if(err) {
       console.log(err);
       return err;
     }
-    console.log(`${answers.first_name} ${answers.last_name} added to Roles`);
+    console.log(`${answers.first_name} ${answers.last_name} role has been updated`);
     appMenu();
   });
 });
