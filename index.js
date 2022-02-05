@@ -148,13 +148,77 @@ const addRole = () => {
 }
 
 const addEmployee = () => {
-  console.log("Adding an Employee");
-  appMenu();
+  return inquirer
+  .prompt([
+    {
+    type: 'text',
+    name: 'first_name',
+    message: "Enter the employee's first name"
+  },
+  {
+    type: 'text',
+    name: 'last_name',
+    message:" Enter the employee's last name"
+  },
+  {
+    type: 'input',
+    name: 'manager',
+    message: "Enter the employee's manager"
+  },
+  {
+    type: 'input',
+    name: 'role_id',
+    message: "Enter the employee's role id"
+  }
+])
+.then((answers) => {
+  const sql = `INSERT INTO employees (first_name, last_name, manager, role_id) VALUES ('${answers.first_name}', '${answers.last_name}', '${answers.manager}', '${answers.role_id}')`;
+  db.query(sql, (err, rows) => {
+    if(err) {
+      console.log(err);
+      return err;
+    }
+    console.log(`${answers.first_name} ${answers.last_name} added to Roles`);
+    appMenu();
+  });
+});
 }
 
 const updateEmployeeRole = () => {
-  console.log("Updating Employee Role");
-  appMenu();
+  return inquirer
+  .prompt([
+    {
+    type: 'text',
+    name: 'first_name',
+    message: "Enter the employee's first name"
+  },
+  {
+    type: 'text',
+    name: 'last_name',
+    message:" Enter the employee's last name"
+  },
+  {
+    type: 'input',
+    name: 'manager',
+    message: "Enter the employee's manager"
+  },
+  {
+    type: 'input',
+    name: 'role_id',
+    message: "Enter the employee's role id"
+  }
+])
+.then((answers) => {
+  const sql = `INSERT INTO employees (first_name, last_name, manager, role_id) VALUES ('${answers.first_name}', '${answers.last_name}', '${answers.manager}', '${answers.role_id}')`;
+  db.query(sql, (err, rows) => {
+    if(err) {
+      console.log(err);
+      return err;
+    }
+    console.log(`${answers.first_name} ${answers.last_name} added to Roles`);
+    appMenu();
+  });
+});
 }
 
 //start server after DB connection
