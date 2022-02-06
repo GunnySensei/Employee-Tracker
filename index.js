@@ -76,7 +76,14 @@ const viewDepartments = () => {
 }
 
 const viewRoles = () => {
-  const sql = (`SELECT * FROM employee_db.roles`);
+  const sql = (`
+  SELECT roles.id AS role_id,
+  roles.job_title AS job_title,
+  roles.salary AS salary, 
+  departments.department_name AS department_name
+  FROM roles
+  LEFT JOIN departments
+  ON roles.department_id = departments.id`);
   db.query(sql, (err, rows) => {
     if(err) {return err;}
     console.table(rows);
@@ -85,7 +92,19 @@ const viewRoles = () => {
 }
 
 const viewEmployees = () => {
-  const sql = (`SELECT * FROM employee_db.employees`);
+  const sql = (`    
+  SELECT employees.id AS employee_id, 
+  employees.first_name, 
+  employees.last_name, 
+  employees.manager,
+  departments.department_name, 
+  roles.job_title, 
+  roles.salary
+  FROM employees
+  LEFT JOIN roles 
+  ON employees.role_id = roles.id
+  INNER JOIN departments
+  ON roles.department_id = departments.id`);
   db.query(sql, (err, rows) => {
     if(err) {return err;}
     console.table(rows);
