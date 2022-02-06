@@ -6,7 +6,7 @@
 ## Description of Project  
 - This CLI application uses a SQL database to track employees, their roles, and departments associated. Using backend SQL commands, this application takes input using inquirer and builds the database based on the entries provided. .  
 
-##Table of Contents  
+## Table of Contents  
 - [Installation](#Installation)  
 - [Usage](#Usage)  
 - [License](#License)  
