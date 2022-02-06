@@ -6,7 +6,7 @@
 ## Description of Project  
 - This CLI application uses a SQL database to track employees, their roles, and departments associated. Using backend SQL commands, this application takes input using inquirer and builds the database based on the entries provided. .  
 
-##Table of Contents  
+## Table of Contents  
 - [Installation](#Installation)  
 - [Usage](#Usage)  
 - [License](#License)  
@@ -37,5 +37,5 @@ MIT License
 -- [GitHub](https://github.com/GunnySensei)  
 -- Email: gunnerwagoner@gmail.com  
     
-[![Gunner's GitHub stats](https://github-readme-stats.vercel.app/api?username=GunnySensei&show_icons=true)]
+![Gunner's GitHub stats](https://github-readme-stats.vercel.app/api?username=GunnySensei&show_icons=true)
 ![Gunner's Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=GunnySensei&theme=blue-green)
